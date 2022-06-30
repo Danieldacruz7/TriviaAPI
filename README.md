@@ -1,4 +1,5 @@
 # TriviaAPI
+A web application for playing the Trivia quiz game. 
 
 ## Table of Contents
 
@@ -10,6 +11,18 @@
 ## Project Motivation:
 
 ## Installations:
+The following libraries are required for the project: 
+- Click
+- Flask
+- Flask-Cors
+- Flask-RESTful
+- Flask-SQLAlchemy
+- itsdangerous
+- Jinja2
+- MarkupSafe
+- psycopg2-binary
+- python-dotenv
+- SQLAlchemy
 
 ## File Descriptions
 
