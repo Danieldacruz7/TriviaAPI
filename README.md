@@ -1,6 +1,8 @@
 # TriviaAPI
 A web application for playing the Trivia quiz game. 
 
+![Trivia Home Page](./Screenshots/Trivia%20Home%20Page.jpg)
+
 ## Table of Contents
 
 1. Project Motivation
