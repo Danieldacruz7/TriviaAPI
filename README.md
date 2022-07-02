@@ -29,3 +29,26 @@ The following libraries are required for the project:
 ## File Descriptions
 
 ## How to Interact with the Project
+
+In order for the application to run successfully, there are a number of steps that need to be followed. Run the following commands in a Linux terminal:
+
+### Step 1
+To start Postgres and set up the database:
+```
+bash setup-trivia.sh
+```
+
+### Step 2
+Move into the backend directory and run the pip install for the requirements.txt file:
+```
+cd backend
+pip3 install -r requirements.txt
+```
+
+### Step 3 
+Start the backend server:
+```
+export FLASK_APP=flaskr
+export FLASK_ENV=development
+flask run
+```
