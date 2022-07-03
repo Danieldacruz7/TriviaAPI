@@ -5,12 +5,16 @@ A web application for playing the Trivia quiz game.
 
 ## Table of Contents
 
-1. Project Motivation
+1. About the Project
 2. Installations
 3. File Descriptions
 4. How to Interact with the Project
 
-## Project Motivation:
+## About the Project:
+
+Trivia is a simple general knowledge game that anyone can play. This game can allow anyone to add any questions with the corresponding answers. It can retrieve these questions based on different categories. 
+
+By clicking on play game, the application will return a set of random questions from a particular category. The user will be able to answer the question and will receive a point for every corect answer. The points will be tallied up and a final score will be displayed.
 
 ## Installations:
 The following libraries are required for the project: 
