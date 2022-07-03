@@ -16,6 +16,8 @@ Trivia is a simple general knowledge game that anyone can play. This game can al
 
 By clicking on play game, the application will return a set of random questions from a particular category. The user will be able to answer the question and will receive a point for every corect answer. The points will be tallied up and a final score will be displayed.
 
+![Trivia Play](./Screenshots/Trivia%20Play.jpg)
+
 ## Installations:
 The following libraries are required for the project: 
 - Click
