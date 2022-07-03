@@ -52,3 +52,19 @@ export FLASK_APP=flaskr
 export FLASK_ENV=development
 flask run
 ```
+
+### Step 4 
+Navigate into the frontend directory and install libraries:
+```
+cd frontend
+npm install
+```
+
+### Step 5 
+Start the frontend server:
+```
+npm start
+```
+
+
+
