@@ -99,7 +99,7 @@ def create_app(test_config=None):
         """
         Queries the Questions table within the database for 
         all possible questions. The query results are then 
-        paginated for the 10 questions based on the page 
+        paginated for 10 questions based on the page 
         selected. Converts the results into a dictionary 
         for serialization using Jsonify.   
 
@@ -144,9 +144,19 @@ def create_app(test_config=None):
     @app.route("/questions/<int:question_id>", methods=["DELETE"])
     def delete_question(question_id):
         """
-        Deletes a question based on its ID. 
+        Using the question_id, a query is made to return the 
+        question with the same id number within the Questions table.
+        The specific question is then removed from the database.
+        Afterwards, the deleted question is added to a dictionary, and 
+        serialized using Jsonify.
+
+        Args:
+            Question ID for the question to be removed. 
+
+        Returns: 
+            JSON Object with the details of the deleted question. 
         
-        Test: curl -X DELETE http://localhost:5000/questions/5
+        Test for API: curl -X DELETE http://localhost:5000/questions/5
         """
         # 
         try:
