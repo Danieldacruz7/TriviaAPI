@@ -52,9 +52,17 @@ def create_app(test_config=None):
     @app.route('/categories', methods=['GET'])
     def get_categories():
         """
-        Returns all available categories. 
-        
-        Test: curl http://localhost:5000/categories
+        Queries the Category table within the database for 
+        all possible categories. Converts the results into a
+        dictionary for serialization using Jsonify.   
+
+        Args:
+            None
+
+        Returns:
+            JSON object.
+
+        Test for API: curl http://localhost:5000/categories
         """
         
         categories = Category.query.all()
@@ -89,7 +97,17 @@ def create_app(test_config=None):
     @app.route('/questions', methods=['GET'])
     def get_questions():
         """
-        Returns all questions with 10 questions per page. 
+        Queries the Questions table within the database for 
+        all possible questions. The query results are then 
+        paginated for the 10 questions based on the page 
+        selected. Converts the results into a dictionary 
+        for serialization using Jsonify.   
+
+        Args:
+            None
+
+        Returns:
+            JSON object.
         
         Test: curl http://localhost:5000/questions?pages=1
         """
