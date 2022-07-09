@@ -158,7 +158,6 @@ def create_app(test_config=None):
         
         Test for API: curl -X DELETE http://localhost:5000/questions/5
         """
-        # 
         try:
             question = Question.query.filter(Question.id == question_id).one_or_none()
             new_dict = {}
@@ -191,8 +190,16 @@ def create_app(test_config=None):
     @app.route("/questions", methods=["POST"])
     def create_question():
         """
-        Adds a new question to the database. 
-        
+        The endpoint will retrieve data that was 
+        inputed from FormView.js. The question will be added
+        to the database. 
+
+        Args:
+            None. 
+
+        Returns: 
+            JSON Object with the details of the created question. 
+
         Test: curl -d '{"category": 1, "difficulty":1, "question":"The question?", "answer":"The answer."}' -H 'Content-Type: application/json' http://localhost:5000/questions
         """
         try:
@@ -233,7 +240,15 @@ def create_app(test_config=None):
     @app.route('/questions/search', methods=['POST'])
     def search_questions():
         """
-        Returns questions that have partial string matching with the search term. 
+        Returns all questions that have partial string matching with the search term.
+        The questions will be paginated and revealing only 10 per page. 
+
+        Args:
+            None. 
+
+        Returns:
+            A JSON object that contains the details of 
+            questions that contain the partial string values. 
         
         Test: curl -d '{"searchTerm":"title", "quiz_category":"All"}' -H 'Content-Type: application/json' http://localhost:5000/questions/search
         """
@@ -265,7 +280,15 @@ def create_app(test_config=None):
     @app.route('/categories/<category_id>/questions', methods=['GET'])
     def get_question_categories(category_id):
         """
-        Returns questions based on its category. 
+        All questions that contain from the same category will 
+        be retrieved. 
+
+        Args: 
+            Category_id will be used to query the database. 
+        
+        Returns: 
+            JSON object that contains all the questions in the same 
+            category. 
         
         Test: curl http://localhost:5000/categories/1/questions
         """
@@ -309,7 +332,16 @@ def create_app(test_config=None):
     @app.route('/quizzes', methods=['POST'])
     def play_game():
         """
-        Starts a quiz that randomly selects question based on category or altogether. 
+        Starts a quiz that randomly selects questions based on category
+        or retrieves questions from any category - "all." Depending on the 
+        number of questions within the category, it will return no more than 
+        6 questions. The score will be tallied, and a final result displayed. 
+
+        Args: 
+            None
+
+        Returns: 
+            JSON object with a list of questions from a category.  
         
         Test: curl -d '{"quiz_category": {"type": "Science", "id": 1}, "previous_questions":[]}' -H 'Content-Type: application/json' http://localhost:5000/quizzes
         """
