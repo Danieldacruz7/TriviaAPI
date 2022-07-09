@@ -109,7 +109,7 @@ def create_app(test_config=None):
         Returns:
             JSON object.
         
-        Test: curl http://localhost:5000/questions?pages=1
+        Test for API: curl http://localhost:5000/questions?pages=1
         """
         
         questions = Question.query.join(Category, Category.id == Question.category).all()
@@ -200,7 +200,7 @@ def create_app(test_config=None):
         Returns: 
             JSON Object with the details of the created question. 
 
-        Test: curl -d '{"category": 1, "difficulty":1, "question":"The question?", "answer":"The answer."}' -H 'Content-Type: application/json' http://localhost:5000/questions
+        Test for API: curl -d '{"category": 1, "difficulty":1, "question":"The question?", "answer":"The answer."}' -H 'Content-Type: application/json' http://localhost:5000/questions
         """
         try:
             body = request.get_json()
@@ -250,7 +250,7 @@ def create_app(test_config=None):
             A JSON object that contains the details of 
             questions that contain the partial string values. 
         
-        Test: curl -d '{"searchTerm":"title", "quiz_category":"All"}' -H 'Content-Type: application/json' http://localhost:5000/questions/search
+        Test for API: curl -d '{"searchTerm":"title", "quiz_category":"All"}' -H 'Content-Type: application/json' http://localhost:5000/questions/search
         """
         body = request.get_json()
         search_term = str(body.get('searchTerm', None))
@@ -290,7 +290,7 @@ def create_app(test_config=None):
             JSON object that contains all the questions in the same 
             category. 
         
-        Test: curl http://localhost:5000/categories/1/questions
+        Test for API: curl http://localhost:5000/categories/1/questions
         """
         questions = Question.query.join(Category, Category.id == Question.category).filter(Category.id == category_id).all()
         current_category = Category.query.filter(Category.id == category_id).one_or_none()
@@ -343,7 +343,7 @@ def create_app(test_config=None):
         Returns: 
             JSON object with a list of questions from a category.  
         
-        Test: curl -d '{"quiz_category": {"type": "Science", "id": 1}, "previous_questions":[]}' -H 'Content-Type: application/json' http://localhost:5000/quizzes
+        Test for API: curl -d '{"quiz_category": {"type": "Science", "id": 1}, "previous_questions":[]}' -H 'Content-Type: application/json' http://localhost:5000/quizzes
         """
         body = request.get_json()
         previous_questions_id = body.get("previous_questions", [])
